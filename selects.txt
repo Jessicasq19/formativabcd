@@ -1,0 +1,32 @@
+ #1
+ select l.id, l.nome from local l join evento e on l.id=e.local_id where (e.fim < now()) group by id, nome;
+
+#2
+select l.id, l.nome from local l where l.id not in (select local_id from evento e join local l on e.local_id = l.id) group by id, nome;
+
+#3
+select evento.nome from evento where (data_ev > "2023-06-19" and data_ev < "2023-12-10") order by evento.nome;
+
+#4
+select u.nome from usuarios u join checkin c on u.id = c.usuario_id group by u.nome having count(u.id) >= 1 order by u.nome asc;
+
+#5
+select e.nome, e.data_ev from checkin c join evento e on c.evento_id = e.id join usuarios u on c.usuario_id = u.id
+ group by e.nome, e.data_ev order by e.nome asc;
+ 
+ #6
+ select u.nome, count(u.id) from usuarios u join checkin c on c.usuario_id = u.id group by u.nome order by u.nome;
+ 
+ #7 não consegui
+ 
+ #8
+select l.nome, avg(e.num_part) from evento e join local l on e.local_id = l.id group by l.nome order by l.nome;
+
+#9
+select u.nome, u.acesso from usuarios u;
+
+#10 não consegui
+
+#11 não consegui
+
+#12 não consegui
