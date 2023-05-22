@@ -1,0 +1,8 @@
+#1
+select id_municipio as Municipio, avg(nota_idesp_ef_iniciais) as Medias_iniciais, avg(nota_idesp_ef_finais) as Medias_finais, avg(nota_idesp_em) as Medias_EM from escola group by id_municipio;
+
+#2
+select ano, id_municipio as Municipio, avg(nota_idesp_ef_iniciais) as Medias_iniciais, avg(nota_idesp_ef_finais) as Medias_finais, avg(nota_idesp_em) as Medias_EM from escola group by id_municipio, ano;
+
+#3
+select id_municipio as Municipio, avg(nota_idesp_ef_iniciais+nota_idesp_ef_finais+nota_idesp_em) as Media_todos from escola group by id_municipio;
